@@ -7,6 +7,7 @@
                  [com.stuartsierra/component "0.3.1"] ; Lifecycle management
                  [clj-time "0.5.1"]
                  [korma "0.4.2"] ; SQL Library
+                 [postgresql "9.3-1102.jdbc41"]
                  [clojurewerkz/cassaforte "3.0.0-alpha1"] ; Cassandra Client
                  [http-kit "2.1.19"]]
   :main clj-crawl.app
