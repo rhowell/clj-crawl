@@ -23,8 +23,6 @@
    (println "start\t\tRuns the crawler")
    (println "enqueue\t\tAdds a URL to the crawl frontier")
    (println "status\t\tPrints the status of the crawler with basic statistics")
-   (println "stop\t\tStops the crawl")
-   )
+   (println "stop\t\tStops the crawl"))
   ([cmd]
-   (println "Not yet implemented")
-   ))
+   (println "Not yet implemented")))
