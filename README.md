@@ -6,17 +6,11 @@ A Web Crawler written in Clojure
 
 Our web crawling framework consist of the following pieces:
 
-Crawl Frontier:
+- **Crawl Frontier**: 
     Decides what pages should be crawled next.  This involves cycle and spider trap detection, depth limits, etc...
-
-Retreiver:
-    Reponsible for retreiving the actual page.
-
-Indexer:
-    Indexes each page, extracts links, and builds a collection of inlinks (pages that link to this one).
-
-Ranker:
-    Determines the relative value of this page.
+- **Retreiver**: Reponsible for retreiving the actual page.
+- **Indexer**: Indexes each page, extracts links, and builds a collection of inlinks (pages that link to this one).
+- **Ranker**: Determines the relative value of this page.
 
 ## Usage
 
@@ -24,8 +18,8 @@ The frontier must first be populated with a URL and a crawl depth.  We only craw
 
 ## Pre-reqs
 
-PostgreSQL 9.4+ - The crawl frontier keeps the list of to be crawled pages in Postgres
-Cassandra 2+ - All pages are indexed into Cassandra along with related meta-data
+- **PostgreSQL 9.4+**: The crawl frontier keeps the list of to be crawled pages in Postgres
+- **Cassandra 2+**: All pages are indexed into Cassandra along with related meta-data
 Java 8+ JRE - For Clojure
 
 ## License
