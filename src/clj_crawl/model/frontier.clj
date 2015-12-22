@@ -1,15 +1,17 @@
 (ns clj-crawl.model.frontier
   (:require [korma.db :refer [defdb]]
             [korma.core :refer [defentity transform]]
-            [environ.core :refer [env]]))
+            [environ.core :refer [env]]
+            [clj-time.local :as time]))
 
+(println "Frontier DB: " (env :frontier-db))
 (defdb frontier-db (env :frontier-db))
 
 (defentity urls
   (transform
    (fn [row]
      ; TODO Build url component pieces
-     (assoc row :last_modified (date/now)))))
+     (assoc row :last_modified (time/local-now)))))
 
 ; Default Crawl prioirty
 (def default-priority 50)
