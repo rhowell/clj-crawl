@@ -1,4 +1,5 @@
-(ns clj-crawl.app)
+(ns clj-crawl.app
+  (:gen-class))
 
 (declare print-help)
 
