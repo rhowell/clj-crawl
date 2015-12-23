@@ -2,8 +2,8 @@
   (:use [clojure.test])
   (:require [clj-crawl.model.frontier :as f]))
 
-(deftest add-a-url
-  (let [url ""]
+(deftest ^:integration add-a-url
+  (let [url "http://www.google.com"]
     (testing "We can insert a URL into the database"
       (is (f/insert url)
           :ok))

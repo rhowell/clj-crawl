@@ -13,5 +13,8 @@
                  [http-kit "2.1.19"]]
   :plugins [[lein-environ "1.0.1"]]
   :main clj-crawl.app
+  :test-selectors {:default (complement :integration)
+                   :integration :integration
+                   :all (constantly true)}
   :profiles  {:uberjar {:aot :all
                         :main clj-crawl.app}})
