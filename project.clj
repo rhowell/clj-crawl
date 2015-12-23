@@ -9,6 +9,7 @@
                  [korma "0.4.2"] ; SQL Library
                  [postgresql "9.3-1102.jdbc41"]
                  [clojurewerkz/cassaforte "3.0.0-alpha1"] ; Cassandra Client
+                 [clojurewerkz/urly "1.0.0"] ; For analyzing URLs
                  [environ "1.0.1"] ; Environment Variables
                  [http-kit "2.1.19"]]
   :plugins [[lein-environ "1.0.1"]]

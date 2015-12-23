@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS urls (
        priority         INT NOT NULL,
        crawl_depth      INT NOT NULL,
        url_protocol     TEXT,
+       url_auth         TEXT,
        url_hostname     TEXT, -- subdomain, domain, and TLD
        url_port         INT,
        url_path         TEXT,
