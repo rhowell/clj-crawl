@@ -5,10 +5,12 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [com.stuartsierra/component "0.3.1"] ; Lifecycle management
+                 [enlive "1.1.6"]
                  [clj-time "0.5.1"]
                  [korma "0.4.2"] ; SQL Library
                  [postgresql "9.3-1102.jdbc41"]
-                 [clojurewerkz/cassaforte "3.0.0-alpha1"] ; Cassandra Client
+                 [cheshire "5.5.0"] ; JSON parser/generator
+                 [com.taoensso/timbre "4.1.4"] ; Much nicer logging
                  [clojurewerkz/urly "1.0.0"] ; For analyzing URLs
                  [environ "1.0.1"] ; Environment Variables
                  [http-kit "2.1.19"]]
@@ -17,5 +19,7 @@
   :test-selectors {:default (complement :integration)
                    :integration :integration
                    :all (constantly true)}
+  :mirrors {#"clojars" {:name "Clojars Mirror"
+                        :url "https://clojars-mirror.tcrawley.org/repo/"}}
   :profiles  {:uberjar {:aot :all
                         :main clj-crawl.app}})

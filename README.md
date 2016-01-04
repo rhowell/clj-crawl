@@ -19,8 +19,8 @@ The frontier must first be populated with a URL and a crawl depth.  We only craw
 ## Pre-reqs
 
 - **PostgreSQL 9.4+**: The crawl frontier keeps the list of to be crawled pages in Postgres
-- **Cassandra 2+**: All pages are indexed into Cassandra along with related meta-data
-Java 8+ JRE - For Clojure
+- **Elastic Search 2+**: All pages are indexed into ES along with related meta-data
+- **Java 8+ JRE** - For Clojure
 
 ## License
 

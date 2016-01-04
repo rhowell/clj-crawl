@@ -58,3 +58,11 @@
                    (select-keys [:url_protocol :url_auth :url_hostname :url_port :url_path :url_params :url_fragment]))]
     ; If a section is nil, don't bother returning it
     (into {} (remove #(nil? (val %)) params))))
+
+(defn record-success
+  [url doc-id]
+  )
+
+(defn record-failure
+  [url resp]
+  )
