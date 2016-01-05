@@ -11,32 +11,33 @@
 (deftest process-failure-test
   )
 
+
+(deftest normalize-text-test
+  (testing "We can pull out all plain text from a page"
+    (let [page (slurp "./test/fixtures/nokogiri.html")]
+      (is (= (retreiver/normalize-text page)
+             "     nokogiri 鋸        docs  github    installation  tutorials  getting help               tutorials    installing nokogiri  parsing an html/xml document  searching a xml/html document  modifying an html/xml document  ensuring well-formed markup  getting help  more resources              contribute to these docs at sparklemotion/nokogiri.org-tutorials .  powered by octopress . theme is oscailte .           ")))))
+
 (deftest extract-links-test
   (testing "We can pull all the links from a page"
-    (let [page (slurp "./test/fixtures/google.html")]
-      (is (= (retreiver/extract-links "https://www.google.com" page)
-             ["https://www.google.com/imghp?hl=en&tab=wi"
-              "https://maps.google.com/maps?hl=en&tab=wl"
-              "https://play.google.com/?hl=en&tab=w8"
-              "https://www.youtube.com/?tab=w1"
-              "https://news.google.com/nwshp?hl=en&tab=wn"
-              "https://mail.google.com/mail/?tab=wm"
-              "https://drive.google.com/?tab=wo"
-              "https://www.google.com/intl/en/options/"
-              "http://www.google.com/history/optout?hl=en"
-              "https://www.google.com/preferences?hl=en"
-              "https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/"
-              "https://www.google.com/chrome/browser/?hl=en&brand=CHNG&utm_source=en-hpp&utm_medium=hpp&utm_campaign=en"
-              "https://www.google.com/advanced_search?hl=en&authuser=0"
-              "https://www.google.com/language_tools?hl=en&authuser=0"
-              "https://www.google.com/url?q=https://play.google.com/store/apps/collection/promotion_3001d1a_google_apps&source=hpp&id=5083181&ct=8&usg=AFQjCNH2g_4hADNfzHkowt7_z-UAPxs6cg"
-              "https://www.google.com/url?q=https://itunes.apple.com/developer/google-inc./id281956209&source=hpp&id=5083181&ct=8&usg=AFQjCNGvJX8SheQV4HAD9AwyqapxpHWdiw"
-              "https://www.google.com/intl/en/ads/"
-              "https://www.google.com/services/"
-              "https://plus.google.com/116899029375914044550"
-              "https://www.google.com/intl/en/about.html"
-              "https://www.google.com/intl/en/policies/privacy/"
-              "https://www.google.com/intl/en/policies/terms/"])))))
+    (let [page (slurp "./test/fixtures/nokogiri.html")]
+      (is (= (retreiver/extract-links "http://www.nokogiri.org" page)
+             ["http://www.nokogiri.org/"
+              "http://rdoc.info/github/sparklemotion/nokogiri"
+              "https://github.com/sparklemotion/nokogiri"
+              "http://www.nokogiri.org/tutorials/installing_nokogiri.html"
+              "http://www.nokogiri.org/tutorials/"
+              "http://www.nokogiri.org/tutorials/getting_help.html"
+              "http://www.nokogiri.org/tutorials/installing_nokogiri.html"
+              "http://www.nokogiri.org/tutorials/parsing_an_html_xml_document.html"
+              "http://www.nokogiri.org/tutorials/searching_a_xml_html_document.html"
+              "http://www.nokogiri.org/tutorials/modifying_an_html_xml_document.html"
+              "http://www.nokogiri.org/tutorials/ensuring_well_formed_markup.html"
+              "http://www.nokogiri.org/tutorials/getting_help.html"
+              "http://www.nokogiri.org/tutorials/more_resources.html"
+              "http://github.com/sparklemotion/nokogiri.org-tutorials"
+              "http://octopress.org/"
+              "http://github.com/coogie/oscailte"])))))
 
 (deftest ^:integration save-page-test
   )

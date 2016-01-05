@@ -1,5 +1,7 @@
 (ns clj-crawl.retreiver
   (:require [clj-crawl.model.frontier :as frontier]
+            [cheshire.core :as cheshire]
+            [environ.core :refer [env]]
             [clojurewerkz.urly.core :as u]
             [clojure.zip :as zip]
             [net.cgrand.enlive-html :as html]
@@ -47,7 +49,7 @@
 (defn save-page
   "Saves this page to ElasticSearch.  Returns the doc _id, nil if we failed to index"
   [url page out-links]
-  (let [resp @(http/post (str (cfg :es_url) "/" (cfg :es_index))
+  (let [resp @(http/post (str (env :elasticsearch-db) "/docs") ; TODO Don't hardcode this business
                          (cheshire/parse-string {:page page
                                                  :out_links out-links
                                                  :in_links nil}))]

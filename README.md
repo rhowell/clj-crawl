@@ -6,8 +6,7 @@ A Web Crawler written in Clojure
 
 Our web crawling framework consist of the following pieces:
 
-- **Crawl Frontier**: 
-    Decides what pages should be crawled next.  This involves cycle and spider trap detection, depth limits, etc...
+- **Crawl Frontier**: Decides what pages should be crawled next.  This involves cycle and spider trap detection, depth limits, etc...
 - **Retreiver**: Reponsible for retreiving the actual page.
 - **Indexer**: Indexes each page, extracts links, and builds a collection of inlinks (pages that link to this one).
 - **Ranker**: Determines the relative value of this page.
